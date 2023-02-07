@@ -6,29 +6,10 @@ export default async function userHandler(
   req: NextApiRequest,
   res: NextApiResponse<User>
 ) {
-  const { query, method } = req
-  const id = parseInt(query.id as string, 10)
-  const name = query.name as string
- const { email, password } = req.body;
-    const { type, message, code, token } = await userService.userLogin(email, password);
 
     switch (req.method) {
       case "POST":
-        const login = async (req: NextApiRequest, res: NextApiResponse) => {
-   
-          try 
-          {
-            if (type === 'NOT_AUTH') 
-            {
-              return res.status(code).json({ message });
-            }
-            return res.status(code).json({ message: token });
-          } 
-          catch (error) 
-          {
-            return res.status(code).json({ message: error });
-          }
-        };
+        return await login(req, res);
       case "DELETE":
         // return await (req, res);
       case "PUT":
@@ -36,7 +17,26 @@ export default async function userHandler(
       default:
         return res.status(400);
     }
+  }
 
+  const login = async (req: NextApiRequest, res: NextApiResponse) => {
+ const { email, password } = req.body;
+
+    const { type, message, code, token } = await userService.userLogin(email, password);
+   
+    try 
+    {
+      if (type === 'NOT_AUTH') 
+      {
+        return res.status(code).json({ message });
+      }
+      return res.status(code).json({ message: token });
+    } 
+    catch (error) 
+    {
+      return res.status(code).json({ message: error });
+    }
+  };
 
 /* 
   
@@ -54,4 +54,4 @@ export default async function userHandler(
       res.setHeader('Allow', ['GET', 'PUT'])
       res.status(405).end(`Method ${method} Not Allowed`)
   } */
-}
+
