@@ -18,9 +18,10 @@ export default async function userHandler(
         return res.status(400);
     }
   }
-
+  
   const login = async (req: NextApiRequest, res: NextApiResponse) => {
- const { email, password } = req.body;
+
+    const { email, password } = req.body;
 
     const { type, message, code, token } = await userService.userLogin(email, password);
    
