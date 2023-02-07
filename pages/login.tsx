@@ -58,7 +58,6 @@ export default function Index() {
           className="RegisterButton"
           variant="success"
           type="submit"
-          data-testid="common_login__button-register"
         >
           <Link
             href="/register"
@@ -73,7 +72,6 @@ export default function Index() {
               variant="danger"
               onClose={ () => setFailedTryLogin(false) }
               dismissible
-              data-testid="common_login__element-invalid-email"
             >
               {`O endereço de e-mail ou a senha não estão corretos.
                 Por favor, tente novamente.`}
