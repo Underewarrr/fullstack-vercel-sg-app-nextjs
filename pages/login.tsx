@@ -1,31 +1,28 @@
 import React, { useState, useEffect, useContext } from 'react';
 import type { User } from '../interfaces'
-import useSwr from 'swr'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Alert, Button, Card, Form } from 'react-bootstrap';
-import requestLogin from '../services/request';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 export default function Index() {
   //const { data, error, isLoading } = useSwr<User[]>('/api/users/login', fetcher)
   const [email, setEmail] = React.useState('teste');
   const [password, setPassword] = React.useState('1234');
-
-
-  const login = async (event) => {
-
+  const [failedTryLogin, setFailedTryLogin] = useState(false);
+  const login = async (event) => 
+  {
     event.preventDefault()
     event.stopPropagation()
-
-    const { data } = await axios.post('http://localhost:3000/api/user/login', {email, password})
-    console.log(data)
+    try {
+    const { data } = await axios.post('http://localhost:3000/api/user/login', { email, password })
     return data
-}
+    } catch (error) {
+      setFailedTryLogin(true);
+    }
+  }
 
 
   return (
@@ -33,6 +30,7 @@ export default function Index() {
       <Form.Group>
         <Form.Label>Email : </Form.Label>
         <Form.Control
+          onChange={ ({ target: { value } }) => setEmail(value) }
           name="email"
           type="email"
           placeholder="Example@email.com"
@@ -41,7 +39,10 @@ export default function Index() {
       <Form.Group>
         <Form.Label>Password : </Form.Label>
         <Form.Control
+          onChange={ ({ target: { value } }) => setPassword(value) }
           placeholder="Password"
+          name="password"
+          type="password"
         />
       </Form.Group>
       <div className="d-grid gap-2 mt-2">
@@ -66,7 +67,7 @@ export default function Index() {
             Ainda não tenho conta
           </Link>
         </Button>
-        {/* {(failedTryLogin)
+        {(failedTryLogin)
           ? (
             <Alert
               variant="danger"
@@ -78,7 +79,7 @@ export default function Index() {
                 Por favor, tente novamente.`}
             </Alert>
           )
-          : null} */}
+          : null} 
       </div>
     </Card>
   )
