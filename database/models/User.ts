@@ -1,3 +1,4 @@
+import { BOOLEAN } from 'sequelize';
 import { Sequelize, Model, INTEGER, STRING } from 'sequelize';
 import * as config from '../config/database';
 
@@ -10,6 +11,7 @@ class Users extends Model {
   email!: string;
   password!: string;
   balance!: number;
+  hasPremium!: boolean;
 }
 
 Users.init({
@@ -37,6 +39,10 @@ Users.init({
   },
   balance: {
     type: INTEGER,
+    allowNull: false,
+  },
+  hasPremium: {
+    type: BOOLEAN,
     allowNull: false,
   }
 }, {
