@@ -5,6 +5,7 @@ import Router, { useRouter } from 'next/router'
 import { Alert, Button, Card, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import Header from '../components/Header';
 
 
 export default function Index() {
@@ -28,6 +29,8 @@ export default function Index() {
 
 
   return (
+    <>
+    <Header />
     <Card className="flex container p-2">
       <Form.Group>
         <Form.Label>Email : </Form.Label>
@@ -51,18 +54,18 @@ export default function Index() {
         <Button
           onClick={login}
           className="LoginButton"
-          variant="success"
+          variant="dark"
           type="submit"
         >
           Login
         </Button>
         <Button
           className="RegisterButton"
-          variant="success"
+          variant="dark"
           type="submit"
         >
           <Link
-            href="/register"
+            href="/user/register"
             className="text-light"
           >
             Ainda não tenho conta
@@ -82,5 +85,6 @@ export default function Index() {
           : null} 
       </div>
     </Card>
+    </>
   )
 }
