@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import type { User } from '../../interfaces'
 import Link from 'next/link'
-import Router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import { Alert, Button, Card, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
