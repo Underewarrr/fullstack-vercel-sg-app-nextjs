@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import type { User } from '../../interfaces'
-import userService from '../../services/user'
+import type { User } from '../../../interfaces'
+import userService from '../../../services/user'
 
 export default async function userHandler(
   req: NextApiRequest,
@@ -54,4 +54,3 @@ export default async function userHandler(
       res.setHeader('Allow', ['GET', 'PUT'])
       res.status(405).end(`Method ${method} Not Allowed`)
   } */
-
