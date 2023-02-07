@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import type { User } from '../../interfaces'
 import Link from 'next/link'
+import Router, { useRouter } from 'next/router'
 import { Alert, Button, Card, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
@@ -11,12 +12,14 @@ export default function Index() {
   const [email, setEmail] = React.useState('teste');
   const [password, setPassword] = React.useState('1234');
   const [failedTryLogin, setFailedTryLogin] = useState(false);
+  const router = useRouter();
   const login = async (event) => 
   {
     event.preventDefault()
     event.stopPropagation()
     try {
     const { data } = await axios.post('http://localhost:3000/api/user/login', { email, password })
+    router.push('/');
     return data
     } catch (error) {
       setFailedTryLogin(true);

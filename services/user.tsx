@@ -38,7 +38,7 @@ const userRegister = async (username: string, email: string, password: string) =
   let data = await usersModel.findOne({ where: { email } });
 
   if (data) {
-    return { code: 409, type:'ERROR', message: 'Usuário existe!' };
+    return { code: 409, type:'REGISTER_ERROR', message: 'Usuário existe!' };
   }
 
   const dataValues = await usersModel.create({
