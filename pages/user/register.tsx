@@ -64,7 +64,7 @@ export default function Index() {
         <Button
           onClick={register}
           className="LoginButton"
-          variant="success"
+          variant="dark"
           type="submit"
         >
           Registrar
