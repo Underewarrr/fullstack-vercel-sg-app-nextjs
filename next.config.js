@@ -4,7 +4,6 @@ module.exports = {
         {
           // matching all API routes
           source: '/pages/api/:path*',
-        destination: 'https://fullstack-vercel-sg-app-nextjs.vercel.app/:path*',
           headers: [
             { key: "Access-Control-Allow-Credentials", value: "true" },
             { key: "Access-Control-Allow-Origin", value: "*" },
