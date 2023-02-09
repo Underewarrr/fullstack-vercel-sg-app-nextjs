@@ -5,6 +5,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "prettier": "npx prettier --check .",
+    "prettier-fix": "npx prettier --write .",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
   "dependencies": {
@@ -30,6 +32,7 @@
     "dotenv": "^16.0.3",
     "eslint": "^8.33.0",
     "eslint-config-next": "13.1.6",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "2.8.4",
