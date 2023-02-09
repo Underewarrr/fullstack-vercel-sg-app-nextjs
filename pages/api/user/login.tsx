@@ -1,44 +1,36 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import type { User } from '../../../interfaces'
-import userService from '../../../services/user'
+import type { NextApiRequest, NextApiResponse } from "next";
+import type { User } from "../../../interfaces";
+import userService from "../../../services/user";
 
 export default async function userHandler(
   req: NextApiRequest,
   res: NextApiResponse<User>
 ) {
-
-    switch (req.method) {
-      case "POST":
-        return await login(req, res);
-      case "DELETE":
-        // return await (req, res);
-      case "PUT":
-       // return await (req, res);
-      default:
-        return res.status(400);
-    }
+  switch (req.method) {
+    case "POST":
+      return await login(req, res);
+    default:
+      return res.status(400);
   }
-  
+}
 
-  const login = async (req: NextApiRequest, res: NextApiResponse) => {
+const login = async (req: NextApiRequest, res: NextApiResponse) => {
+  const { email, password } = req.body;
 
-    const { email, password } = req.body;
+  const { type, message, code, token } = await userService.userLogin(
+    email,
+    password
+  );
 
-    const { type, message, code, token } = await userService.userLogin(email, password);
-   
-    try 
-    {
-      if (type === 'NOT_AUTH') 
-      {
-        return res.status(code).json({ message });
-      }
-      return res.status(code).json({ message: token });
-    } 
-    catch (error) 
-    {
-      return res.status(code).json({ message: error });
+  try {
+    if (type === "NOT_AUTH") {
+      return res.status(code).json({ message });
     }
-  };
+    return res.status(code).json({ token });
+  } catch (error) {
+    return res.status(code).json({ message: error });
+  }
+};
 
 /* 
   
