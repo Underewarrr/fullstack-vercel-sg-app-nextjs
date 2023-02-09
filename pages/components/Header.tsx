@@ -1,7 +1,7 @@
-import React from 'react'
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
-import Link from 'next/link'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import Link from "next/link";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Header = () => {
   return (
@@ -18,12 +18,12 @@ const Header = () => {
                <NavDropdown.Item href="#action/3.2">
                 Another action
               </NavDropdown.Item> */}
-              <NavDropdown.Item href="#action/3.3">Having Troubles</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">
+                Having Troubles
+              </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item>
-                <Link href="/user/login">
-                Login
-                </Link>
+                <Link href="/user/login">Login</Link>
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
@@ -36,7 +36,7 @@ const Header = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
