@@ -32,7 +32,7 @@ export default async function userHandler(
       {
         return res.status(code).json({ message });
       }
-      return res.status(code).json({ message: token });
+      return res.status(code).json({ token });
     } 
     catch (error) 
     {

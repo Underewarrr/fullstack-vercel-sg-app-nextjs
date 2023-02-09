@@ -1,8 +1,9 @@
 import React from 'react'
+import Header from '../components/Header'
 
 const panel = () => {
   return (
-    <div>panel</div>
+    <Header />
   )
 }
 

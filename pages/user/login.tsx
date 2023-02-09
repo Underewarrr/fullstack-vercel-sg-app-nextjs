@@ -11,13 +11,15 @@ export default function Index() {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [failedTryLogin, setFailedTryLogin] = useState(false);
+  const [token, setToken] = React.useState('');
+
   const router = useRouter();
   const login = async (event) => 
   {
     event.preventDefault()
     event.stopPropagation()
     try {
-    const { data } = await axios.post('https://fullstack-vercel-sg-app-nextjs.vercel.app/api/user/login', { email, password },
+    const { data } = await axios.post('http://localhost:3000/api/user/login', { email, password },
     {
       headers : {
         "Content-Type" : "application/json"
@@ -25,6 +27,7 @@ export default function Index() {
     }
     )
     router.push('/');
+    setToken(data.token)
     return data
     } catch (error) {
       setFailedTryLogin(true);
