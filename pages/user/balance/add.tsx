@@ -3,12 +3,13 @@ import { Button, Card, Form, Offcanvas } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../../components/Header';
 
-const add = () => {
 
-    // Turn this offcanvas in a component
+const useAddBalance = () => {
   const [show, setShow] = useState(false);
   const [userPay, setUserPay] = useState('');
   const [userMethodPay, setUserMethodPay] = useState('PIX')
+    // Turn this offcanvas in a component
+  
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
     console.log(userPay)
@@ -58,4 +59,4 @@ const add = () => {
   )
 }
 
-export default add
+export default useAddBalance
