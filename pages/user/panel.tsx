@@ -1,10 +1,8 @@
-import React from 'react'
-import Header from '../components/Header'
+import React from "react";
+import Header from "../components/Header";
 
 const panel = () => {
-  return (
-    <Header />
-  )
-}
+  return <Header />;
+};
 
-export default panel
+export default panel;
