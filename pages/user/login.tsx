@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Alert, Button, Card, Form } from "react-bootstrap";
@@ -27,7 +27,7 @@ export default function Index() {
         }
       );
       router.push("/");
-      setToken(data.token);
+      setToken(token);
       return data;
     } catch (error) {
       setFailedTryLogin(true);

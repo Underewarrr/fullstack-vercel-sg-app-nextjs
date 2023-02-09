@@ -9,10 +9,6 @@ export default async function userHandler(
   switch (req.method) {
     case "POST":
       return await login(req, res);
-    case "DELETE":
-    // return await (req, res);
-    case "PUT":
-    // return await (req, res);
     default:
       return res.status(400);
   }
