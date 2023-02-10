@@ -1,12 +1,6 @@
 import usersModel from "../database/models/User";
 import * as JWT from "jsonwebtoken";
 
-import mercadopago from "mercadopago";
-// Adicione as credenciais
-mercadopago.configure({
-  access_token: 'TEST-738152149779382-020923-094431d2d8e5b8d6a29e10a7b1361740-290098653'
-});
-
 const userLogin = async (email: string, password: string) => {
   const data = await usersModel.findOne({ where: { email } });
   if (!data) {
@@ -72,11 +66,21 @@ const userRegister = async (
   return { type: "REGISTRED", data, code: 201, dataValues };
 };
 
-const userAddBalance = async (preference) => {
-  const data = await mercadopago.preferences.create(preference)
-  if (data) {
-    return { code: 200, type: "ADD_BALANCE", message: "Payment Request"}
-  }
+const userAddBalance = async (
+  title: string,
+  unit_price: number,
+  quantity: number
+) => {
+  const preference = {
+    items: [
+      {
+        title,
+        unit_price,
+        quantity,
+      }
+    ]
+  };
+
 }
 
-export default { userLogin, userRegister, userAddBalance };
+export default { userLogin, userRegister };
