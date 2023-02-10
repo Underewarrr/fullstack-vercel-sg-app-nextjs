@@ -27,8 +27,6 @@ const useAddBalance = () => {
   // Turn this offcanvas in a component
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  console.log(userPay);
-  console.log(userMethodPay);
 
   return (
     <>
