@@ -9,7 +9,6 @@ export default function Index(props) {
   const id = 1122;
 
   const [preferenceId, setPreferenceId] = useState(null)
-  const formRef = useRef(null)
   const initialized = useRef(false)
 
   const { loaded } = useScript("https://sdk.mercadopago.com/js/v2")
