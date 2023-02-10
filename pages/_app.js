@@ -1,9 +1,14 @@
+/* eslint-disable @next/next/no-before-interactive-script-outside-document */
 import Script from 'next/script'
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js" />
+      <Script 
+      src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js" 
+      strategy="beforeInteractive"
+      />
       <Component {...pageProps} />
     </>
   )

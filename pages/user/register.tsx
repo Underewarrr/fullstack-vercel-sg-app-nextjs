@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { Alert, Button, Card, Form } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import Header from "../components/Header";
 

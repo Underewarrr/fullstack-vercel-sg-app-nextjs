@@ -7,8 +7,24 @@ const useAddBalance = () => {
   const [show, setShow] = useState(false);
   const [userPay, setUserPay] = useState("");
   const [userMethodPay, setUserMethodPay] = useState("PIX");
+  // MP SDK
+  React.useEffect(() => {
+    // window is accessible here.
+      function verifyKeyOnLoad() { 
+        window.Mercadopago.setPublishableKey('TEST-2724ac84-5ce2-45d6-8de4-df9d8378ac77')
+        window.Mercadopago.getIdentificationTypes()
+      }
+      verifyKeyOnLoad();
+      console.log('Key verified')
+     // Reconectar
+     /* setTimeout(() => {
+      if (!window.Mercadopago.initialized) {
+        verifyKeyOnLoad();
+        console.log('Reconectando...')
+      }
+    }, 1000) */
+  }, []);
   // Turn this offcanvas in a component
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   console.log(userPay);
