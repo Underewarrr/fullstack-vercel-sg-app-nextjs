@@ -26,7 +26,7 @@ const login = async (req: NextApiRequest, res: NextApiResponse) => {
     if (type === "NOT_AUTH") {
       return res.status(code).json({ message });
     }
-    return res.status(code).json({ token });
+    return res.status(code).json({ message: token });
   } catch (error) {
     return res.status(code).json({ message: error });
   }
