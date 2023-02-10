@@ -22,7 +22,7 @@ export default function Index() {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3001/api/user/register",
+        "fullstack-vercel-sg-app-nextjs.vercel.app/api/user/register",
         { username, email, password }
       );
       router.push("/");
