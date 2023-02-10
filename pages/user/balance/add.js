@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react"
 import { Button } from "react-bootstrap";
-import useScript from '../../hooks/useScript'
-
 const PUBLIC_KEY = "TEST-001debb2-d8d5-40a4-953f-8ca65aaa0fa0";
 
 export default function Index(props) {
