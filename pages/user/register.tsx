@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "dotenv/config";
 
 import { useRouter } from "next/router";
 import { Alert, Button, Card, Form, Spinner } from "react-bootstrap";
