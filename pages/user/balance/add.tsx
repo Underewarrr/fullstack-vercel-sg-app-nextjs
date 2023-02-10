@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "../../components/Header";
 
 const useAddBalance = () => {
-  
   const [show, setShow] = useState(false);
   const [userPay, setUserPay] = useState("");
   const [userMethodPay, setUserMethodPay] = useState("PIX");
@@ -54,7 +53,6 @@ const useAddBalance = () => {
           </div>
         </Form.Group>
       </Card>
-     
     </>
   );
 };
