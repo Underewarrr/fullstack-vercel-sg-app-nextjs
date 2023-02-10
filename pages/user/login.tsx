@@ -19,7 +19,7 @@ export default function Index() {
     setLoading(true)
     try {
       const { data } = await axios.post(
-        "fullstack-vercel-sg-app-nextjs.vercel.app/api/user/login",
+        "/api/user/login",
         { email, password },
         {
           headers: {
