@@ -1,6 +1,7 @@
 ### Health Status
 
 Em construç
+<details>
 
 ## Configuração de ORM (Database)
  - [x] [User](https://github.com/Underewarrr/fullstack-vercel-sg-app-nextjs/blob/master/database/models/User.ts)
@@ -13,6 +14,8 @@ Em construç
   - /user
     - /login
     - /register
+
+</details>
 
 ## Front-end
 
