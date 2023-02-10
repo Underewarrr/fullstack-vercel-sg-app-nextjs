@@ -12,7 +12,7 @@ export default function Index(props) {
   const initialized = useRef(false)
 
 
-   function useScript(url : string) {
+   function useScript(url) {
     const [loaded, setLoaded] = useState(false)
     useEffect(() => {
       const existingScript = document.querySelector(`[src="${url}"]`)
