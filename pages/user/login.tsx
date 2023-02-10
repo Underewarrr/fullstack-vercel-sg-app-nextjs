@@ -18,7 +18,7 @@ export default function Index() {
     event.stopPropagation();
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/api/user/login",
+        "https://fullstack-vercel-sg-app-nextjs.vercel.app/api/user/login",
         { email, password },
         {
           headers: {
