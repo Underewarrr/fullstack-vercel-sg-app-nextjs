@@ -27,6 +27,7 @@ export default function Index() {
       );
       router.push("/");
       setToken(token);
+      console.log(token)
       return data;
     } catch (error) {
       setFailedTryLogin(true);
