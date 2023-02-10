@@ -33,12 +33,12 @@ const useAddBalance = () => {
   return (
     <>
       <Header />
-      <Card className="flex container p-2">
+      <Card className="flex">
         <Form.Group>
           <Form.Label>Valor para ser adicionado</Form.Label>
           <Form.Control
             onChange={({ target: { value } }) => setUserPay(value)}
-            name="urlProfile"
+            name="addValue"
             type="number"
             placeholder="10,00"
           />
@@ -62,8 +62,47 @@ const useAddBalance = () => {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                Some text as placeholder. In real life you can have the elements
-                you have chosen. Like, text, images, lists, etc.
+                <Card>
+                  <Card.Header>
+                    teste
+                  </Card.Header>
+                  <Card.Body>
+                  <div className="d-flex justify-content-around">
+                  <Form.Group>
+                    <Form.Label>Dono do cartão : </Form.Label>
+                    <Form.Control
+                      name="cardHolderName"
+                      type="text"
+                      placeholder="Example User"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Numero do cartão : </Form.Label>
+                    <Form.Control
+                      name="cardNumber"
+                      type="number"
+                      placeholder="5421..."
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Data de validade : </Form.Label>
+                    <Form.Control
+                      name="validateDate"
+                      type="text"
+                      placeholder="12/2034"
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>CVV : </Form.Label>
+                    <Form.Control
+                      name="CVV"
+                      type="number"
+                      placeholder="123"
+                    />
+                  </Form.Group>
+                  </div>
+                  </Card.Body>
+                </Card>
               </Offcanvas.Body>
             </Offcanvas>
           </div>
