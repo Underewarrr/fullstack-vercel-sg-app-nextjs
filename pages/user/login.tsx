@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Alert, Button, Card, Form } from "react-bootstrap";
+import { Alert, Button, Card, Form, Spinner } from "react-bootstrap";
 import axios from "axios";
 import Header from "../components/Header";
 
@@ -10,14 +10,16 @@ export default function Index() {
   const [password, setPassword] = React.useState("");
   const [failedTryLogin, setFailedTryLogin] = useState(false);
   const [token, setToken] = React.useState("");
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
   const login = async (event) => {
     event.preventDefault();
     event.stopPropagation();
+    setLoading(true)
     try {
       const { data } = await axios.post(
-        "https://fullstack-vercel-sg-app-nextjs.vercel.app/api/user/login",
+        "http://localhost:3001/api/user/login",
         { email, password },
         {
           headers: {
@@ -25,9 +27,12 @@ export default function Index() {
           },
         }
       );
-      router.push("/");
-      setToken(token);
-      console.log(token)
+     router.push("/user/panel");
+      setToken(data.message);
+      window.localStorage.setItem('key', data.message);
+      window.localStorage.setItem('email', email);
+
+      console.log(data.message)
       return data;
     } catch (error) {
       setFailedTryLogin(true);
@@ -56,6 +61,20 @@ export default function Index() {
             type="password"
           />
         </Form.Group>
+        {
+          loading ? (
+        <div 
+        style={{marginTop: '1rem', marginLeft: '1rem' }}
+        className="d-flex justify-content-around">
+        <Spinner animation="grow" variant="dark" />
+        <Spinner animation="grow" variant="dark" />
+        <Spinner animation="grow" variant="dark" />
+        <Spinner animation="grow" variant="dark" />
+        </div>
+          ) : null
+        }
+        
+
         <div className="d-grid gap-2 mt-2">
           <Button
             onClick={login}
