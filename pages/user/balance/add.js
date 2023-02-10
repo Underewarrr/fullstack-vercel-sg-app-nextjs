@@ -1,19 +1,43 @@
+import axios from "axios";
 import { useEffect, useRef, useState } from "react"
-import { Button } from "react-bootstrap";
-import useScript from '../../hooks/useScript'
+import { Button, Card, Form } from "react-bootstrap";
+import Header from '../../components/Header'
 
-const PUBLIC_KEY = "TEST-001debb2-d8d5-40a4-953f-8ca65aaa0fa0";
+const PUBLIC_KEY = "TEST-2724ac84-5ce2-45d6-8de4-df9d8378ac77";
 
-export default function Index(props) {
+export default function Index() {
   //const { id } = useParams(); // id de producto
   const id = 1122;
-
   const [preferenceId, setPreferenceId] = useState(null)
-  const formRef = useRef(null)
-  const initialized = useRef(false)
+  const [price, setPrice] = useState('');
 
+  const initialized = useRef(false)
   const { loaded } = useScript("https://sdk.mercadopago.com/js/v2")
 
+  function useScript(url) {
+    const [loaded, setLoaded] = useState(false)
+    useEffect(() => {
+      const existingScript = document.querySelector(`[src="${url}"]`)
+  
+      if (existingScript) {
+        setLoaded(true)
+      } else {
+        const script = document.createElement("script")
+        script.src = url
+        script.async = true
+        script.onload = () => {
+          setLoaded(true)
+        }
+  
+        document.body.appendChild(script)
+      }
+    }, [url])
+  
+    return {
+      loaded
+    }
+  }
+  
   useEffect(() => {
     if (initialized.current) {
       console.log('initialized.current')
@@ -32,7 +56,7 @@ export default function Index(props) {
 
     initialized.current = true
 
-    const mp = new window.MercadoPago('TEST-2724ac84-5ce2-45d6-8de4-df9d8378ac77', {
+    const mp = new window.MercadoPago(PUBLIC_KEY, {
       locale: "pt-BR",
     });
 
@@ -49,8 +73,36 @@ export default function Index(props) {
   }, [loaded, preferenceId])
 
 
-  useEffect(() => {
-    const fetchId = async () => {
+
+  const fetchPayment = async (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    try {
+      const { data } = await axios.post(
+        "http://localhost:3000/api/user/balance/add",
+        { 
+          productId: id, 
+          description: "Adicionar saldo na carteira SG",
+          price,
+          quantity: 1, },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      );
+      setPreferenceId(await data.id);
+      console.log('data.id', data.id)
+      console.log('try')
+      return data;
+    } catch (error) {
+      console.log('catch', error)
+    }
+  };
+
+/*     const fetchId = async () => {
+      console.log('fetch')
       try {
         const post = await fetch("http://localhost:3000/api/user/balance/add", {
           method: "POST",
@@ -61,8 +113,8 @@ export default function Index(props) {
           },
           body: JSON.stringify({
             productId: id,
-            description: "agustin",
-            price: 1,
+            description: "Adicionar saldo na carteira SG",
+            price,
             quantity: 1,
           }),
         });
@@ -74,15 +126,32 @@ export default function Index(props) {
       } catch (error) {
         console.log('error', error);
       }
-    }
+    } */
 
-    fetchId()
 
-  }, []);
+
+ 
 
   return (
     <div>
-      <div className="button-checkout" id="button-checkout"></div>
+      <Header />
+      <Card>
+      <Form.Group>
+          <Form.Label>Valor : </Form.Label>
+          <Form.Control
+            onChange={({ target: { value } }) => setPrice(value)}
+            name="valor"
+            type="number"
+            placeholder="10,00"
+          />
+        </Form.Group>
+      </Card>
+      <div className='d-grid gap-2 mt-2'>
+        <Button onClick={fetchPayment}>
+           Gerar Botão de pagamento
+        </Button>
+        </div>
+     <center><div className="button-checkout" id="button-checkout"></div></center>
     </div>
   )
   ;
