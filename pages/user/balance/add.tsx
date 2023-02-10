@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Button, Card, Form, Offcanvas } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "../../components/Header";
-import Script from 'next/script'
 
 const useAddBalance = () => {
+  
   const [show, setShow] = useState(false);
   const [userPay, setUserPay] = useState("");
   const [userMethodPay, setUserMethodPay] = useState("PIX");
@@ -54,7 +54,7 @@ const useAddBalance = () => {
           </div>
         </Form.Group>
       </Card>
-      <Script src="https://sdk.mercadopago.com/js/v2"></Script>
+     
     </>
   );
 };
