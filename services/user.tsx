@@ -66,4 +66,21 @@ const userRegister = async (
   return { type: "REGISTRED", data, code: 201, dataValues };
 };
 
+const userAddBalance = async (
+  title: string,
+  unit_price: number,
+  quantity: number
+) => {
+  const preference = {
+    items: [
+      {
+        title,
+        unit_price,
+        quantity,
+      }
+    ]
+  };
+
+}
+
 export default { userLogin, userRegister };
