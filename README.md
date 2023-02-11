@@ -1,6 +1,10 @@
 ### Health Status
 
 Em construç
+
+AuthSystem(https://github.com/Underewarrr/fullstack-vercel-sg-app-nextjs/pull/6)
+
+MercadoPagoSDK(https://github.com/Underewarrr/fullstack-vercel-sg-app-nextjs/pull/5)
 <details>
 
 ## Configuração de ORM (Database)
