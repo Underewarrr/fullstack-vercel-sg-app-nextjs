@@ -1,10 +1,13 @@
 import React from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import Header from "../../components/Header";
+import ProtectedRoute from "../ProtectedRoute";
 
 export default function Index() {
   return (
     <>
+  <ProtectedRoute />
+
     <Header/>
     <Card
     bg="dark"

@@ -10,7 +10,6 @@ const Header = () => {
   useEffect(() => {
     const result = window.localStorage.getItem('email');
     setEmail(result);
-    console.log(result);
   }, [])
 
   return (
@@ -28,7 +27,7 @@ const Header = () => {
                 Another action
               </NavDropdown.Item> */}
               <NavDropdown.Item href="#action/3.3">
-                Having Troubles
+                Adicionar saldo
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item>

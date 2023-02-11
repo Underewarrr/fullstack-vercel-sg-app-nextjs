@@ -66,21 +66,18 @@ const userRegister = async (
   return { type: "REGISTRED", data, code: 201, dataValues };
 };
 
-const userAddBalance = async (
-  title: string,
-  unit_price: number,
-  quantity: number
+const userGetInfo = async (
+  email: string
 ) => {
-  const preference = {
-    items: [
-      {
-        title,
-        unit_price,
-        quantity,
-      }
-    ]
-  };
+  const data = await usersModel.findOne({ where: { email },
+    attributes: {
+      exclude: ['password']
+  } });
+  if (!data) {
+    return { code: 409, type: "FIND_ERROR", message: "Usuário não existe!" };
+  }
+  return { code: 200, type: "FIND_SUCCESS", data };
 
 }
 
-export default { userLogin, userRegister };
+export default { userLogin, userRegister, userGetInfo };

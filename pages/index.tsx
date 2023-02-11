@@ -21,7 +21,11 @@ export default function Index() {
       Ganhar Dinheiro<br/>
       Online Usando Suas<br/> Redes Sociais!
       </div>
-      <p>Tenha uma renda extra utilizando suas redes sociais para<br/> seguir, curtir e comentar. <br/>Ganhe dinheiro online agora mesmo!</p>
+      <p>Tenha uma renda extra utilizando suas redes sociais para
+        <br/> 
+      seguir, curtir e comentar. 
+        <br/>
+      Ganhe dinheiro online agora mesmo!</p>
       </p>
       <img 
       style={{ width: '30rem', marginRight: '3rem' }}

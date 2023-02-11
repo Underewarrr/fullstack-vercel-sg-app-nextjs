@@ -2,12 +2,14 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 import Header from "../components/Header";
 import Link from "next/link";
+import ProtectedRoute from "./ProtectedRoute";
 
 const panel = () => {
 
 
   return (
   <>
+  <ProtectedRoute />
   <Header />
   <div className="d-flex justify-content-around">
   <Card
