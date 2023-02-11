@@ -7,23 +7,26 @@ const withAuth = (WrappedComponent) => {
 const WithAuth = (props) => {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
+    const [email, setEmail] = useState('');
 
     useEffect(() => {
         const result = window.localStorage.getItem('email');
-       
+        setEmail(result)
+        console.log('localstorage result', result)
         const getUserInfo = async () => {
             try {
-                const { data } = await axios.post(
-                  "/api/user/get",
-                  { result },
-                  {
-                    headers: {
-                      "Content-Type": "application/json",
-                    },
-                  }
+              const { data } = await axios.post(
+                "/api/user/get",
+                { email: result },
+                {
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
                 );
-                setUser(data)          
-                console.log(data.message)
+                setUser(data)    
+
+                console.log('data message', data.message)
                 return data;
               } catch (error) {
                 console.log(error)
@@ -37,7 +40,7 @@ const WithAuth = (props) => {
         return <div>Loading...</div>;
     }
 
-    if (!user) {
+    if (!email) {
         Router.push('/user/login');
         return null;
     }

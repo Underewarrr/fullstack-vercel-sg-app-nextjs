@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
-import { Button } from "react-bootstrap";
+import { Button, Card, Form } from "react-bootstrap";
+import Header from "../../components/Header";
 import ProtectedRoute from "../ProtectedRoute";
 
 const PUBLIC_KEY = "TEST-001debb2-d8d5-40a4-953f-8ca65aaa0fa0";
@@ -9,6 +10,7 @@ export default function Index(props) {
   const id = 1122;
 
   const [preferenceId, setPreferenceId] = useState(null)
+  const [value, setValue] = useState();
   const initialized = useRef(false)
 
 
@@ -73,8 +75,8 @@ export default function Index(props) {
   }, [loaded, preferenceId])
 
 
-  useEffect(() => {
-    const fetchId = async () => {
+
+    const sendPayment = async () => {
       try {
         const post = await fetch("http://localhost:3000/api/user/balance/add", {
           method: "POST",
@@ -85,8 +87,8 @@ export default function Index(props) {
           },
           body: JSON.stringify({
             productId: id,
-            description: "agustin",
-            price: 1,
+            description: "Adicionar saldo a carteira SG",
+            price: value,
             quantity: 1,
           }),
         });
@@ -100,15 +102,40 @@ export default function Index(props) {
       }
     }
 
-    fetchId()
-
-  }, []);
 
   return (
     <div>
   <ProtectedRoute />
-
-      <div className="button-checkout" id="button-checkout"></div>
+      <Header />
+      <Card
+      bg="dark"
+      text="white"
+      style={{ marginRight: '1rem', marginTop: '1rem', marginLeft: '1rem'  }}
+      >
+        <Card.Header>
+        Adicionar Saldo
+        </Card.Header>
+        <Card.Body>
+        <Form.Group>
+          <Form.Label>Valor : </Form.Label>
+          <Form.Control
+            onChange={({ target: { value } }) => setValue(value)}
+            name="value"
+            type="number"
+            placeholder="10,00"
+          />
+        </Form.Group>
+        <div className="d-grid gap-2 mt-2">
+        <Button
+        onClick={sendPayment}
+        variant="light"
+        >
+          Gerar Pagamento
+        </Button>
+        </div>
+        </Card.Body>
+     <center><div className="button-checkout" id="button-checkout"></div></center>
+      </Card>
     </div>
   )
   ;
