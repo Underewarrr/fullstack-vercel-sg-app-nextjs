@@ -66,4 +66,18 @@ const userRegister = async (
   return { type: "REGISTRED", data, code: 201, dataValues };
 };
 
-export default { userLogin, userRegister };
+const userGetInfo = async (
+  email: string
+) => {
+  const data = await usersModel.findOne({ where: { email },
+    attributes: {
+      exclude: ['password']
+  } });
+  if (!data) {
+    return { code: 409, type: "FIND_ERROR", message: "Usuário não existe!" };
+  }
+  return { code: 200, type: "FIND_SUCCESS", data };
+
+}
+
+export default { userLogin, userRegister, userGetInfo };
