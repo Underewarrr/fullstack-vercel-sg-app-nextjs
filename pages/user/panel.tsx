@@ -35,7 +35,7 @@ const panel = () => {
   <Card
   bg="dark"
   text="white"
-  style={{ width: '18rem', marginTop: '1rem', marginLeft: '1rem' }}
+  style={{ width: '', marginTop: '1rem', marginLeft: '1rem' }}
   >
       <Card.Header>Realizar Ações</Card.Header>
       <Card.Body>
@@ -61,23 +61,7 @@ Realizar ações
         </blockquote>
       </Card.Body>
     </Card>
-    <Card
-    style={{ width: '18rem', marginTop: '1rem', marginLeft: '1rem' }}
-    >
-      <Card.Header>Outro Serviço</Card.Header>
-      <Card.Body>
-        <blockquote className="blockquote mb-0">
-          <div>
-            {' '}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            posuere erat a ante.{' '}
-          </div>
-          <footer className="blockquote-footer">
-            Someone famous in <cite title="Source Title">Source Title</cite>
-          </footer>
-        </blockquote>
-      </Card.Body>
-    </Card>
+   
     </div>
     </Card>
   </>)
