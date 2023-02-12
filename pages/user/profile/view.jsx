@@ -58,10 +58,7 @@ const [username, setUsername] = useState();
                             <MDBCol>
                                 <MDBBreadcrumb className="bg-dark rounded-3 p-3 mb-4">
                                     <MDBBreadcrumbItem>
-                                        <a href='#'>User</a>
-                                    </MDBBreadcrumbItem>
-                                    <MDBBreadcrumbItem>
-                                        <a href="#">Profile</a>
+                                        <a href='/user/panel'>Panel</a>
                                     </MDBBreadcrumbItem>
                                     <MDBBreadcrumbItem active>View Profile</MDBBreadcrumbItem>
                                 </MDBBreadcrumb>

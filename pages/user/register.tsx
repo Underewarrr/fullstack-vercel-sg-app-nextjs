@@ -35,7 +35,9 @@ export default function Index() {
   return (
     <>
       <Header />
-      <Card>
+      <Card.Header
+      style={{ width: '', marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}
+      >
       <MDBRow>
       <MDBCol>
           <MDBBreadcrumb className="bg-dark rounded-3 p-3 mb-4">
@@ -46,7 +48,12 @@ export default function Index() {
           </MDBBreadcrumb>
       </MDBCol>
       </MDBRow>
-      <Card className="flex container p-2">
+      </Card.Header>
+      <Card
+      bg="dark"
+      style={{ width: '', marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}
+      >
+      
         <Form.Group>
           <Form.Label>Email : </Form.Label>
           <Form.Control
@@ -90,7 +97,7 @@ export default function Index() {
           <Button
             onClick={register}
             className="LoginButton"
-            variant="dark"
+            variant="light"
             type="submit"
           >
             Registrar
@@ -106,7 +113,6 @@ export default function Index() {
             </Alert>
           ) : null}
         </div>
-      </Card>
       </Card>
 
     </>
