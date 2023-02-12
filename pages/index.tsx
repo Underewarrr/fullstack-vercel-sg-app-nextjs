@@ -8,8 +8,11 @@ export default function Index() {
   return (
     <>
       <Header />
-      <Card>
-      <Card.Header>
+    
+      <Card.Header
+        style={{ width: '', marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}
+      
+      >
                         <MDBRow>
                             <MDBCol>
                                 <MDBBreadcrumb className="bg-dark rounded-3 p-3 mb-4"> 
@@ -18,6 +21,12 @@ export default function Index() {
                             </MDBCol>
                         </MDBRow>
                     </Card.Header>
+                    <Card
+        style={{ width: '', marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}
+
+      bg="dark"
+      text="white"
+      >
         <Card.Body>
       <div 
       style={{ marginTop: '5rem', marginLeft: '1rem' }}
