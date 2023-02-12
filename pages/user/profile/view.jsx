@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../../components/Header";
 import ProtectedRoute from "../ProtectedRoute";
 
@@ -20,15 +20,33 @@ import {
     MDBListGroupItem
   } from 'mdb-react-ui-kit';
 import { Button, Card } from "react-bootstrap";
+import { useState } from "react";
 
 export default function Index() {
 
-    const id = localStorage.getItem('id');
-    const balance = localStorage.getItem('balance');
-    const email = localStorage.getItem('email');
-    const hasPremium = localStorage.getItem('hasPremium');
-    const role = localStorage.getItem('role');
+
+const [id, setId] = useState();
+const [balance, setBalance] = useState();
+const [email, setEmail] = useState();
+const [hasPremium, setHasPremium] = useState();
+const [role, setRole] = useState();
+const [username, setUsername] = useState();
+
+
+    useEffect(() => {
+    const id = window.localStorage.getItem('id');
+    setId(id)
+    const balance = window.localStorage.getItem('balance');
+    setBalance(balance)
+    const email = window.localStorage.getItem('email');
+    setEmail(email);
+    const hasPremium = window.localStorage.getItem('hasPremium');
+    setHasPremium(hasPremium);
+    const role = window.localStorage.getItem('role');
+    setRole(role)
     const username = localStorage.getItem('username');
+    setUsername(username);
+    }, [])
 
     return (
         <>
