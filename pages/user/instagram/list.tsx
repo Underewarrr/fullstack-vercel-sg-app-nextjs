@@ -19,11 +19,11 @@ export default function Index() {
         Ganhar realizando ações
     </Card.Header>
     <Card.Body>
-        <p>Selecione a rede social</p>
+        <div>Selecione a rede social</div>
     <Form.Select aria-label="Default select example">
       <option value="instagram">Instagram</option>
     </Form.Select>
-    <p>Selecione o tipo de ação</p>
+    <div>Selecione o tipo de ação</div>
     <Form.Select aria-label="Default select example">
       <option value="likes">Curtir</option>
       <option value="follows">Seguir</option>

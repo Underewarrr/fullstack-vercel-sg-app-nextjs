@@ -40,7 +40,12 @@ const Header = () => {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link>{email}</Nav.Link>      
+            <Link
+            href="/user/profile/view"
+            >
+              {email} 
+            </Link>
+
           </Nav>
         </Navbar.Collapse>
       </Container>

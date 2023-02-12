@@ -3,6 +3,7 @@ import { Button, Card } from "react-bootstrap";
 import Header from "../components/Header";
 import Link from "next/link";
 import ProtectedRoute from "./ProtectedRoute";
+import { MDBBreadcrumb, MDBBreadcrumbItem, MDBCol, MDBRow } from "mdb-react-ui-kit";
 
 const panel = () => {
 
@@ -11,6 +12,25 @@ const panel = () => {
   <>
   <ProtectedRoute />
   <Header />
+
+  <Card.Header
+  style={{ width: '', marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}
+  >
+        <MDBRow>
+        <MDBCol>
+            <MDBBreadcrumb className="bg-dark rounded-3 p-3 mb-4">
+                <MDBBreadcrumbItem>
+                    <a href='/'>Home</a>
+                </MDBBreadcrumbItem>
+                <MDBBreadcrumbItem active>Panel</MDBBreadcrumbItem>
+            </MDBBreadcrumb>
+        </MDBCol>
+    </MDBRow>
+</Card.Header>
+<Card
+  bg="dark"
+  style={{ width: '', marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}
+  >
   <div className="d-flex justify-content-around">
   <Card
   bg="dark"
@@ -20,11 +40,11 @@ const panel = () => {
       <Card.Header>Realizar Ações</Card.Header>
       <Card.Body>
         <blockquote className="blockquote mb-0">
-          <p>
+          <div>
             {' '}
             Realize ações e ganhe instantaneamente, siga, curta e
             ganhe.{' '}
-          </p>
+          </div>
           <footer>
             <div className="d-grid gap-2 mt-2">
               <Link
@@ -47,11 +67,11 @@ Realizar ações
       <Card.Header>Outro Serviço</Card.Header>
       <Card.Body>
         <blockquote className="blockquote mb-0">
-          <p>
+          <div>
             {' '}
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
             posuere erat a ante.{' '}
-          </p>
+          </div>
           <footer className="blockquote-footer">
             Someone famous in <cite title="Source Title">Source Title</cite>
           </footer>
@@ -59,6 +79,7 @@ Realizar ações
       </Card.Body>
     </Card>
     </div>
+    </Card>
   </>)
 };
 

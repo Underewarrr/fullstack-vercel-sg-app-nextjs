@@ -1,3 +1,4 @@
+import { MDBBreadcrumb, MDBBreadcrumbItem, MDBCol, MDBRow } from "mdb-react-ui-kit";
 import { useEffect, useRef, useState } from "react"
 import { Button, Card, Form } from "react-bootstrap";
 import Header from "../../components/Header";
@@ -107,14 +108,25 @@ export default function Index(props) {
     <div>
   <ProtectedRoute />
       <Header />
-      <Card
+     <Card.Header
+     style={{ marginRight: '1rem', marginTop: '1rem', marginLeft: '1rem'  }}
+     >
+       <MDBRow>
+            <MDBCol>
+                <MDBBreadcrumb className="bg-dark rounded-3 p-3 mb-4">
+                    <MDBBreadcrumbItem>
+                        <a href='/'>Home</a>
+                    </MDBBreadcrumbItem>
+                    <MDBBreadcrumbItem active>Panel</MDBBreadcrumbItem>
+                </MDBBreadcrumb>
+            </MDBCol>
+        </MDBRow>
+        </Card.Header>
+        <Card
       bg="dark"
       text="white"
       style={{ marginRight: '1rem', marginTop: '1rem', marginLeft: '1rem'  }}
       >
-        <Card.Header>
-        Adicionar Saldo
-        </Card.Header>
         <Card.Body>
         <Form.Group>
           <Form.Label>Valor : </Form.Label>

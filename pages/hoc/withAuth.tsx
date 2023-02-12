@@ -25,8 +25,13 @@ const WithAuth = (props) => {
                 }
                 );
                 setUser(data)    
-
                 console.log('data message', data.message)
+                localStorage.setItem('id', data.message.id);
+                localStorage.setItem('balance', data.message.balance);
+                localStorage.setItem('email', data.message.email);
+                localStorage.setItem('hasPremium', data.message.hasPremium);
+                localStorage.setItem('role', data.message.role);
+                localStorage.setItem('username', data.message.username);
                 return data;
               } catch (error) {
                 console.log(error)
@@ -34,7 +39,7 @@ const WithAuth = (props) => {
         }
         getUserInfo()
         setLoading(false);
-    }, []);
+    }, [])
 
     if (loading) {
         return <div>Loading...</div>;
