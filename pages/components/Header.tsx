@@ -20,14 +20,18 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link href="/user/panel">Panel</Nav.Link>
             <NavDropdown title="Account" id="collasible-nav-dropdown">
               {/*<NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                <NavDropdown.Item href="#action/3.2">
                 Another action
               </NavDropdown.Item> */}
-              <NavDropdown.Item href="#action/3.3">
+              <NavDropdown.Item>
+                <Link
+                href="/user/balance/add"
+                >
                 Adicionar saldo
+                </Link>
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item>
@@ -36,7 +40,12 @@ const Header = () => {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link>{email}</Nav.Link>      
+            <Link
+            href="/user/profile/view"
+            >
+              {email} 
+            </Link>
+
           </Nav>
         </Navbar.Collapse>
       </Container>
