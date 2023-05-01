@@ -15,12 +15,14 @@ const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">SG-APP</Navbar.Brand>
+        <Navbar.Brand href="#home">Grow up Media</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/user/panel">Panel</Nav.Link>
+            <Nav.Link href="/user/services">Services</Nav.Link>
+
             <NavDropdown title="Account" id="collasible-nav-dropdown">
               {/*<NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                <NavDropdown.Item href="#action/3.2">

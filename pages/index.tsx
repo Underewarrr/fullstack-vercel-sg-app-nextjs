@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Card } from "react-bootstrap";
 import Header from "./components/Header";
-import homeIMG from '../utils/img/home.svg'
 import { MDBBreadcrumb, MDBBreadcrumbItem, MDBCol, MDBRow } from "mdb-react-ui-kit";
 
 export default function Index() {
@@ -27,6 +26,7 @@ export default function Index() {
       bg="dark"
       text="white"
       >
+       
         <Card.Body>
       <div 
       style={{ marginTop: '5rem', marginLeft: '1rem' }}
@@ -45,12 +45,17 @@ export default function Index() {
         <br/>
       Ganhe dinheiro online agora mesmo!</div>
       </div>
-      <img 
-      style={{ width: '30rem', marginRight: '3rem' }}
-      src="https://svgshare.com/i/qB_.svg" alt="" />
+
+      <Card.Img  src="https://svgshare.com/i/qB_.svg"
+         style={{ width: '500px', marginTop: '1rem', marginLeft: '1rem', marginRight: '1rem' }}
+        >
+
+        </Card.Img>
       </div>
+
       </Card.Body>
       </Card>
+      
 
     </>
   );
