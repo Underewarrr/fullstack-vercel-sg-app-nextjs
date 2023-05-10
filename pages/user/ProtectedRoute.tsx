@@ -1,7 +1,7 @@
 import withAuth from '../hoc/withAuth';
 
 const ProtectedRoute = (props) => {
-  return <div></div>;
+  return <div>PROCTED ROUTE</div>;
 };
 
 export default withAuth(ProtectedRoute);
